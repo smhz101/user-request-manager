@@ -1,0 +1,18 @@
+{
+  "name": "muzammil/user-request-manager",
+  "description": "A comprehensive solution to manage user requests, integrate with WooCommerce, and provide dynamic admin interfaces using React.",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Muzammil Hussain",
+      "email": "dev@muzammil.dev"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "URM\\": "includes/",
+      "URM\\Frontend\\": "public/"
+    }
+  },
+  "require": {}
+}

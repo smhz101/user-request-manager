@@ -1,0 +1,132 @@
+.request-details-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.request-user-name {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.request-email {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.request-date {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.request-message {
+  border-top: 1px solid #eaeaea;
+  padding-top: 15px;
+  margin-top: 20px;
+}
+
+.response-form {
+  background: #f5f5f5;
+  border-top: 1px solid #eaeaea;
+  bottom: 0;
+  left: 0;
+  padding: 15px 20px 35px 20px;
+  position: fixed;
+  right: 0;
+}
+
+.response-form h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.response-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  resize: vertical;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.response-button {
+  background: #0073aa;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.response-button:hover {
+  background: #005a87;
+}
+
+.request-details-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Makes it occupy the full height of its container */
+}
+
+.request-details-content {
+  flex: 1; /* Makes it grow and take up available space */
+  overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
+.current-message-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* .previous-messages {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #777;
+}
+
+.previous-messages-title {
+  font-size: 1rem;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-top: 1px solid #eaeaea;
+  padding-top: 10px;
+} */
+
+.messages {
+  margin-top: 20px;
+  overflow-y: auto;
+  max-height: 400px; /* Adjust if needed */
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  position: relative;
+}
+
+.message p {
+  margin: 0;
+}
+
+.message-time {
+  font-size: 0.7rem;
+  color: #888;
+}
+
+.outgoing {
+  background-color: #e1ffc7; /* Light green background for sent messages */
+  align-self: flex-start;
+  margin-left: auto;
+}
+
+.incoming {
+  background-color: #e9e9e9; /* Light gray background for received messages */
+}

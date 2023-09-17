@@ -1,0 +1,27 @@
+/* Styling for the main wrapper */
+.ConditionalBox {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+/* Styling for the input inside the Condition */
+.Condition input[type="checkbox"],
+.Condition input[type="radio"],
+.Condition select {
+  margin-right: 10px;
+}
+
+/* Basic styling for the elements inside True/False */
+.True,
+.False {
+  margin-top: 10px;
+}
+
+.True input,
+.False input {
+  padding: 5px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+}

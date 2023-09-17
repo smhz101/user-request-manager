@@ -1,0 +1,114 @@
+{
+  "requests": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "username": "john_doe",
+      "email": "john@example.com",
+      "subject": "Query about Product X",
+      "message": "I'd like to know more about Product X's features. Are there any additional benefits if I purchase the premium version? Also, is there any discount available for bulk purchases?",
+      "status": "unread",
+      "timestamp": "2023-09-15T12:00:00Z",
+      "date": "2023-09-15"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "username": "jane_smith",
+      "email": "jane@example.com",
+      "subject": "Issue with my order",
+      "message": "I haven't received my order #12345 yet. I ordered it last week and was expecting it to arrive within 3 days as per your delivery policy. Can you please check the status and let me know when I can expect it?",
+      "status": "in-progress",
+      "timestamp": "2023-09-14T15:30:00Z",
+      "date": "2023-09-14"
+    },
+    {
+      "id": 3,
+      "name": "Alice Johnson",
+      "username": "alice_johnson",
+      "email": "alice@example.com",
+      "subject": "Feedback on Product Y",
+      "message": "I recently purchased Product Y and I must say I'm extremely satisfied with its performance. I love the user-friendly interface and the detailed documentation that came with it. Just wanted to share my positive feedback. Keep up the good work!",
+      "status": "resolved",
+      "timestamp": "2023-09-13T10:15:00Z",
+      "date": "2023-09-13"
+    },
+    {
+      "id": 4,
+      "name": "Bob Martin",
+      "username": "bob_martin",
+      "email": "bob@example.com",
+      "subject": "Inquiry about Product Z",
+      "message": "I've been hearing a lot about Product Z lately. Can you provide more details about its specifications and pricing? Also, are there any ongoing promotions or discounts for new customers?",
+      "status": "unread",
+      "timestamp": "2023-09-12T09:45:00Z",
+      "date": "2023-09-12"
+    },
+    {
+      "id": 5,
+      "name": "Charlie Brown",
+      "username": "charlie_brown",
+      "email": "charlie@example.com",
+      "subject": "Refund request for Order #67890",
+      "message": "I'd like to request a refund for my recent order #67890. The product arrived damaged and isn't functioning as expected. I've attached photos of the damaged item. Please let me know the next steps.",
+      "status": "in-progress",
+      "timestamp": "2023-09-11T14:20:00Z",
+      "date": "2023-09-11"
+    },
+    {
+      "id": 6,
+      "name": "Diana Ross",
+      "username": "diana_ross",
+      "email": "diana@example.com",
+      "subject": "Technical Support for Product A",
+      "message": "I've been facing some technical issues with Product A. Every time I try to start it, I get an error message. I've tried reinstalling it multiple times but the issue persists. Can you please assist?",
+      "status": "unread",
+      "timestamp": "2023-09-10T11:10:00Z",
+      "date": "2023-09-10"
+    },
+    {
+      "id": 7,
+      "name": "Edward Norton",
+      "username": "edward_norton",
+      "email": "edward@example.com",
+      "subject": "Billing Inquiry",
+      "message": "I noticed an extra charge on my last invoice. I wasn't expecting any additional fees. Can you provide a breakdown of the charges?",
+      "status": "in-progress",
+      "timestamp": "2023-09-09T16:25:00Z",
+      "date": "2023-09-09"
+    },
+    {
+      "id": 8,
+      "name": "Fiona Apple",
+      "username": "fiona_apple",
+      "email": "fiona@example.com",
+      "subject": "Product B Availability",
+      "message": "I've been trying to purchase Product B from your website, but it seems to be out of stock. Do you have any information on when it will be available again?",
+      "status": "resolved",
+      "timestamp": "2023-09-08T13:40:00Z",
+      "date": "2023-09-08"
+    },
+    {
+      "id": 9,
+      "name": "George Clooney",
+      "username": "george_clooney",
+      "email": "george@example.com",
+      "subject": "Feedback on Service",
+      "message": "I just wanted to commend your customer service team. I had an issue with my order and they were prompt, courteous, and resolved the issue quickly. Thank you!",
+      "status": "unread",
+      "timestamp": "2023-09-07T10:55:00Z",
+      "date": "2023-09-07"
+    },
+    {
+      "id": 10,
+      "name": "Halle Berry",
+      "username": "halle_berry",
+      "email": "halle@example.com",
+      "subject": "Inquiry about Membership",
+      "message": "I'm interested in the premium membership plan you offer. Can you provide more details about the benefits and pricing?",
+      "status": "unread",
+      "timestamp": "2023-09-06T09:05:00Z",
+      "date": "2023-09-06"
+    }
+  ]
+}

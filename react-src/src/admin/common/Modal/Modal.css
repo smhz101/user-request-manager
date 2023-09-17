@@ -1,0 +1,60 @@
+:root {
+  --admin-bar-height: 32px;
+}
+
+@media screen and (max-width: 782px) {
+  :root {
+    --admin-bar-height: 46px;
+  }
+}
+
+.urm-modal-overlay {
+  position: fixed;
+  top: var(--admin-bar-height);
+  left: 0;
+  width: 100%;
+  height: calc(100% - var(--admin-bar-height));
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: flex-end; /* Align modal to the right side of the screen */
+  align-items: center;
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  z-index: 9999;
+}
+
+.urm-modal {
+  background: white;
+  padding: 20px;
+  width: 45%; /* Set width to 45% */
+  height: 100%; /* Full height */
+  position: relative;
+  transform: translateX(100%);
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.urm-modal-close {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

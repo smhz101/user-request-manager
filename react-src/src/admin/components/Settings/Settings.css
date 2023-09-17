@@ -1,0 +1,43 @@
+.urm-settings-tabs {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.urm-settings-tabs li {
+  margin: 0;
+}
+
+.urm-settings-tabs a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #555;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.urm-settings-tabs li.active a,
+.urm-settings-tabs a:hover {
+  color: #0073aa;
+  border-bottom-color: #0073aa;
+}
+
+.urm-settings-content {
+  padding: 20px;
+}
+
+.settings.wrap {
+  max-width: 800px;
+}
+
+.setting-row {
+  margin: 0 0 15px 0;
+}
+
+.setting-row label {
+  padding-bottom: 8px;
+  display: block;
+}

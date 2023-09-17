@@ -1,0 +1,25 @@
+.urm-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.urm-button:hover {
+  background-color: #555;
+}
+
+/* Medium button size */
+.urm-button.medium {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* Small button size */
+.urm-button.small {
+  padding: 5px 10px;
+  font-size: 12px;
+}

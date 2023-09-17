@@ -1,0 +1,27 @@
+.all-requests.wrap {
+  max-width: 100%;
+}
+
+.customer {
+  background-color: #4caf50; /* Green */
+  padding: 5px 10px;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.user {
+  background-color: #2196f3; /* Blue */
+  padding: 5px 10px;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.guest {
+  background-color: #f44336; /* Red */
+  padding: 5px 10px;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+}

@@ -1,0 +1,43 @@
+.urm-tabs-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.urm-tabs {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.urm-tabs li {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  cursor: pointer;
+  margin-right: 5px;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+  margin-bottom: 0px;
+}
+
+.urm-tabs li:hover {
+  background-color: #eee;
+}
+
+.urm-tabs li.active {
+  background-color: #fff;
+  border-top: 2px solid #333;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+.tab-content.active {
+  display: block;
+  background-color: #fff;
+}

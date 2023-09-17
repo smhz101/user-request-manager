@@ -1,0 +1,47 @@
+::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+::-webkit-color-swatch {
+  border: 0;
+  border-radius: 0;
+}
+
+::-moz-color-swatch,
+::-moz-focus-inner {
+  border: 2px solid #333;
+}
+
+::-moz-focus-inner {
+  padding: 0;
+}
+
+.urm-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.urm-input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+input[type="color"] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  height: 30px;
+  padding: 0;
+  width: 40px;
+}
+
+/* Inline input group */
+.urm-input-group.inline {
+  flex-direction: row;
+  align-items: center; /* Vertically align items to the center */
+}

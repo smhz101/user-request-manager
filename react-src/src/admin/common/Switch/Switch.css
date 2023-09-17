@@ -1,0 +1,87 @@
+.urm-switch-group {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.urm-switch-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.urm-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.urm-switch-slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.urm-switch-input:checked + .urm-switch-slider {
+  background-color: #2196f3;
+}
+
+.urm-switch-input:checked + .urm-switch-slider:before {
+  transform: translateX(26px);
+}
+
+/* Medium Switch */
+.urm-switch-group.medium {
+  width: 50px;
+  height: 28px;
+}
+
+.urm-switch-group.medium .urm-switch-slider {
+  border-radius: 28px;
+}
+
+.urm-switch-group.medium .urm-switch-slider:before {
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+}
+
+.urm-switch-group.medium .urm-switch-input:checked + .urm-switch-slider:before {
+  transform: translateX(22px);
+}
+
+/* Small Switch */
+.urm-switch-group.small {
+  width: 40px;
+  height: 22px;
+  padding: 0;
+}
+
+.urm-switch-group.small .urm-switch-slider {
+  border-radius: 22px;
+}
+
+.urm-switch-group.small .urm-switch-slider:before {
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+}
+
+.urm-switch-group.small .urm-switch-input:checked + .urm-switch-slider:before {
+  transform: translateX(18px);
+}

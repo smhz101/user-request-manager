@@ -1,0 +1,12 @@
+.urm-textarea-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.urm-textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+}

@@ -1,0 +1,15 @@
+.urm-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.urm-table th,
+.urm-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.urm-table th {
+  background-color: #f2f2f2;
+}

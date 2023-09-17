@@ -35,6 +35,55 @@ User Request Manager (URM) is a WordPress plugin designed to streamline the proc
 - `POST /wp-json/urm/v1/settings`: Update plugin settings.
 - `GET /wp-json/urm/v1/requests-by-user?identifier={email_or_id}`: Fetch user requests by email or user ID.
 
+### Upcoming Features:
+
+- **User Dashboard Integration**:
+
+  - Allow users to log in and view their own request status and history.
+  - Enable users to update or delete their requests from the dashboard.
+
+- **Advanced Search and Filters for Admin**:
+
+  - Implement advanced search capabilities for administrators to quickly find user requests based on keywords, dates, or user details.
+  - Provide filter options to narrow down requests by their status, type, or other metadata.
+
+- **Notifications System**:
+
+  - Integrate real-time notifications to inform administrators of new requests or updates.
+  - Option for users to receive email notifications regarding the status of their requests.
+
+- **Analytics and Reporting**:
+
+  - Introduce an analytics dashboard for administrators to track and visualize request patterns, peak times, and other essential metrics.
+  - Generate reports for periodic review or audits.
+
+- **Bulk Actions**:
+
+  - Allow administrators to perform bulk actions like marking multiple requests as read, deleting, or archiving.
+
+- **Customizable Email Templates**:
+
+  - Provide an interface for administrators to customize the email templates used for notifications and communications.
+
+- **Integration with Other CRM Tools**:
+
+  - Enable integration with popular Customer Relationship Management (CRM) tools to streamline user data management and communications.
+
+- **Automated Responses**:
+
+  - Implement a system for automatic responses based on specific triggers or keywords in user requests.
+
+- **Improved Security Features**:
+
+  - Enhanced security measures, such as two-factor authentication, to ensure the safety of user data.
+
+- **Mobile Responsive Admin Dashboard**:
+
+  - Ensure the admin dashboard and user interface is fully responsive for mobile and tablet devices.
+
+- **Localization and Internationalization**:
+  - Offer multi-language support to cater to a global audience.
+
 ## ❓ FAQs
 
 - **Q: Can I customize the email templates used by URM?**

@@ -8,7 +8,7 @@ import "./Form.css";
  *
  * @param {Object} props - The component's properties.
  * @param {React.ReactNode} props.children - React children elements.
- * @param {...Object} props.rest - Any additional props to spread onto the form.
+ * @param {...Object} rest - Any additional props to spread onto the form.
  * @return {React.ReactNode} Returns the form element with children content.
  */
 function Form({ children, ...props }) {

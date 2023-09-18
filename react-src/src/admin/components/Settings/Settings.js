@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { __ } from "@wordpress/i18n";
 import { Tabs, Tab, Button, Form } from "../../common";
 
 import {
@@ -14,6 +15,9 @@ import { useSelector, useDispatch } from "react-redux";
 
 import "./Settings.css";
 
+/**
+ * Settings component for managing various user settings.
+ */
 function Settings() {
   const dispatch = useDispatch();
 
@@ -49,33 +53,42 @@ function Settings() {
     dispatch(saveSettingsThunk(allSettings));
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <p>{__("Loading...", "user-request-manager")}</p>;
+  if (error)
+    return (
+      <p>
+        {__("Error:", "user-request-manager")} {error}
+      </p>
+    );
 
   return (
     <div className="settings wrap">
       <header>
-        <h1 className="wp-heading-inline">Settings</h1>
+        <h1 className="wp-heading-inline">
+          {__("Settings", "user-request-manager")}
+        </h1>
       </header>
 
       <main>
         <Form onSubmit={handleSubmit}>
           <div className="urm-settings">
             <Tabs>
-              <Tab label="General">
+              <Tab label={__("General", "user-request-manager")}>
                 <GeneralSettings />
               </Tab>
-              <Tab label="Notifications">
+              <Tab label={__("Notifications", "user-request-manager")}>
                 <NotificationSettings />
               </Tab>
-              <Tab label="Appearance">
+              <Tab label={__("Appearance", "user-request-manager")}>
                 <AppearanceSettings />
               </Tab>
-              <Tab label="Advanced">
+              <Tab label={__("Advanced", "user-request-manager")}>
                 <AdvancedSettings />
               </Tab>
             </Tabs>
-            <Button type="submit">Save All Changes</Button>
+            <Button type="submit">
+              {__("Save All Changes", "user-request-manager")}
+            </Button>
           </div>
         </Form>
       </main>

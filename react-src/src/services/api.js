@@ -1,67 +1,109 @@
 /* global urmReactVars */
 
 import axios from "axios";
+import { addQueryArgs } from "@wordpress/url";
+// Importing the internationalization function
+import { __ } from "@wordpress/i18n";
 
+const BASE_URL = "/wp-json/urm/v1";
+
+/**
+ * Constructs the headers for axios requests.
+ *
+ * @param {boolean} isJSON - Whether to include the JSON content type header.
+ * @returns {Object} - Headers object.
+ */
+const getHeaders = (isJSON = true) => {
+  let headers = {
+    "X-WP-Nonce": urmReactVars.nonce,
+  };
+
+  if (isJSON) {
+    headers["Content-Type"] = "application/json";
+  }
+
+  return headers;
+};
+
+/**
+ * Fetch user requests.
+ *
+ * @returns {Promise<Object[]>} - An array of user requests.
+ */
 export const fetchUserRequests = async () => {
-  const response = await axios.get("/wp-json/urm/v1/user-requests", {
-    headers: {
-      "X-WP-Nonce": urmReactVars.nonce, // Use the localized nonce here
-    },
+  const response = await axios.get(addQueryArgs(`${BASE_URL}/user-requests`), {
+    headers: getHeaders(false),
   });
 
   return response.data.requests;
 };
 
+/**
+ * Send a response.
+ *
+ * @param {string} email - The email to send the response to.
+ * @param {string} message - The response message.
+ * @returns {Promise<Object>} - Response data.
+ * @throws Will throw an error if the request fails.
+ */
 export const sendResponse = async (email, message) => {
   try {
     const response = await axios.post(
-      "/wp-json/urm/v1/send-response",
-      {
-        email,
-        message,
-      },
-      {
-        headers: {
-          "X-WP-Nonce": urmReactVars.nonce,
-        },
-      }
+      addQueryArgs(`${BASE_URL}/send-response`),
+      { email, message },
+      { headers: getHeaders() }
     );
 
     return response.data;
   } catch (error) {
-    console.error("Failed to send response:", error);
+    console.error(
+      __("Failed to send response:", "user-request-manager"),
+      error
+    );
     throw error;
   }
 };
 
+/**
+ * Fetch requests for a specific user.
+ *
+ * @param {string} identifier - The user's identifier.
+ * @returns {Promise<Object>} - Data related to the user's requests.
+ */
 export const fetchRequestsForUser = async (identifier) => {
   const response = await axios.get(
-    `/wp-json/urm/v1/requests-by-user?identifier=${identifier}`,
-    {
-      headers: {
-        "X-WP-Nonce": urmReactVars.nonce, // Use the localized nonce here
-      },
-    }
+    addQueryArgs(`${BASE_URL}/requests-by-user`, { identifier }),
+    { headers: getHeaders(false) }
   );
 
   return response.data;
 };
 
+/**
+ * Fetch settings.
+ *
+ * @returns {Promise<Object>} - The settings data.
+ */
 export async function fetchSettings() {
-  const response = await axios.get("/wp-json/urm/v1/settings", {
-    headers: {
-      "X-WP-Nonce": urmReactVars.nonce, // Use the localized nonce here
-    },
+  const response = await axios.get(addQueryArgs(`${BASE_URL}/settings`), {
+    headers: getHeaders(false),
   });
   return response.data;
 }
 
+/**
+ * Save settings.
+ *
+ * @param {Object} data - The settings data to save.
+ * @returns {Promise<Object>} - The saved settings data.
+ */
 export async function saveSettings(data) {
-  const response = await axios.post("/wp-json/urm/v1/settings", data, {
-    headers: {
-      "Content-Type": "application/json",
-      "X-WP-Nonce": urmReactVars.nonce,
-    },
-  });
+  const response = await axios.post(
+    addQueryArgs(`${BASE_URL}/settings`),
+    data,
+    {
+      headers: getHeaders(),
+    }
+  );
   return response.data;
 }

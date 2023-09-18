@@ -5,6 +5,12 @@ import { setAppearanceSettings } from "../../../store/reducers/settings/appearan
 import { __ } from "@wordpress/i18n"; // Internationalization function
 
 /**
+ * @TODO: Enhance the user experience by providing feedback (like a toast notification) after settings are saved.
+ * @TODO: Consider providing a reset button to revert to default appearance settings.
+ * @TODO: Error handling and feedback might be required if the dispatched action encounters an error.
+ */
+
+/**
  * AppearanceSettings Component
  * This component allows users to adjust their appearance settings.
  *

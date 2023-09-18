@@ -2,27 +2,35 @@ import React from "react";
 import { Input, Switch, Select, Textarea } from "../../common";
 import { useSelector, useDispatch } from "react-redux";
 import { setGeneralSettings } from "../../../store/reducers/settings/generalSettingsSlice";
+import { ConditionalBox, Condition, True } from "../../common";
+import { __ } from "@wordpress/i18n"; // Internationalization function
 
-import { ConditionalBox, Condition, True, False } from "../../common";
-
+/**
+ * GeneralSettings Component
+ * This component allows users to adjust their general settings.
+ *
+ * @returns {React.Component}
+ */
 function GeneralSettings() {
   const generalSettings = useSelector((state) => state.generalSettings);
   const dispatch = useDispatch();
 
+  /**
+   * Handle changes in the input fields and dispatch them to the store.
+   *
+   * @param {Event} event - The input change event
+   */
   const handleInputChange = (event) => {
     const { name, type } = event.target;
     const value =
       type === "checkbox" ? event.target.checked : event.target.value;
-    console.log("value ", value);
-
     dispatch(setGeneralSettings({ ...generalSettings, [name]: value }));
   };
 
-  // Adjust the options structure
   const statusOptions = [
-    { value: "unread", label: "Unread" },
-    { value: "in-progress", label: "In Progress" },
-    { value: "resolved", label: "Resolved" },
+    { value: "unread", label: __("Unread", "user-request-manager") },
+    { value: "in-progress", label: __("In Progress", "user-request-manager") },
+    { value: "resolved", label: __("Resolved", "user-request-manager") },
   ];
 
   return (
@@ -31,7 +39,9 @@ function GeneralSettings() {
         <ConditionalBox>
           <Condition value="on">
             <div className="setting-row">
-              <label htmlFor="test">Testing:</label>
+              <label htmlFor="test">
+                {__("Testing:", "user-request-manager")}
+              </label>
               <Switch
                 id="test"
                 name="test"
@@ -42,7 +52,9 @@ function GeneralSettings() {
           </Condition>
           <True>
             <div className="setting-row">
-              <label htmlFor="test1">Enable Auto-Reply:</label>
+              <label htmlFor="test1">
+                {__("Enable Auto-Reply:", "user-request-manager")}
+              </label>
               <Switch
                 id="test1"
                 name="test1"
@@ -51,7 +63,9 @@ function GeneralSettings() {
               />
             </div>
             <div className="setting-row">
-              <label htmlFor="test2">Enable Auto-Reply:</label>
+              <label htmlFor="test2">
+                {__("Enable Auto-Reply:", "user-request-manager")}
+              </label>
               <Switch
                 id="test2"
                 name="test2"
@@ -60,14 +74,13 @@ function GeneralSettings() {
               />
             </div>
           </True>
-          {/* <False>
-            <p>nothing to show</p>
-          </False> */}
         </ConditionalBox>
       </div>
 
       <div className="setting-row">
-        <label htmlFor="activateRequests">Activate User Requests:</label>
+        <label htmlFor="activateRequests">
+          {__("Activate User Requests:", "user-request-manager")}
+        </label>
         <Switch
           id="activateRequests"
           name="activateRequests"
@@ -77,7 +90,9 @@ function GeneralSettings() {
       </div>
 
       <div className="setting-row">
-        <label htmlFor="defaultStatus">Default Status for New Requests:</label>
+        <label htmlFor="defaultStatus">
+          {__("Default Status for New Requests:", "user-request-manager")}
+        </label>
         <Select
           id="defaultStatus"
           name="defaultStatus"
@@ -88,7 +103,9 @@ function GeneralSettings() {
       </div>
 
       <div className="setting-row">
-        <label htmlFor="autoReply">Enable Auto-Reply:</label>
+        <label htmlFor="autoReply">
+          {__("Enable Auto-Reply:", "user-request-manager")}
+        </label>
         <Switch
           id="autoReply"
           name="autoReply"
@@ -98,7 +115,9 @@ function GeneralSettings() {
       </div>
 
       <div className="setting-row">
-        <label htmlFor="autoReplyMessage">Auto-Reply Message:</label>
+        <label htmlFor="autoReplyMessage">
+          {__("Auto-Reply Message:", "user-request-manager")}
+        </label>
         <Textarea
           id="autoReplyMessage"
           name="autoReplyMessage"
@@ -108,7 +127,9 @@ function GeneralSettings() {
       </div>
 
       <div className="setting-row">
-        <label htmlFor="notificationEmail">Notification Email:</label>
+        <label htmlFor="notificationEmail">
+          {__("Notification Email:", "user-request-manager")}
+        </label>
         <Input
           id="notificationEmail"
           type="email"
@@ -119,7 +140,9 @@ function GeneralSettings() {
       </div>
 
       <div className="setting-row">
-        <label htmlFor="requestLimit">Request Limit per Day:</label>
+        <label htmlFor="requestLimit">
+          {__("Request Limit per Day:", "user-request-manager")}
+        </label>
         <Input
           id="requestLimit"
           type="number"
@@ -130,7 +153,9 @@ function GeneralSettings() {
       </div>
 
       <div className="setting-row">
-        <label htmlFor="enableCaptcha">Enable Captcha Verification:</label>
+        <label htmlFor="enableCaptcha">
+          {__("Enable Captcha Verification:", "user-request-manager")}
+        </label>
         <Switch
           id="enableCaptcha"
           name="enableCaptcha"

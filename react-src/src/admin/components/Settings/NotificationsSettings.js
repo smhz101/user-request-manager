@@ -2,33 +2,44 @@ import React from "react";
 import { Input, Switch, Select, Textarea, Button } from "../../common";
 import { useSelector, useDispatch } from "react-redux";
 import { setNotificationSettings } from "../../../store/reducers/settings/notificationSettingsSlice";
+import { __ } from "@wordpress/i18n";
 
+/**
+ * NotificationSettings Component
+ * This component allows users to configure their notification settings.
+ *
+ * @returns {React.Component}
+ */
 function NotificationSettings() {
   const notificationsSettings = useSelector(
     (state) => state.notificationSettings
   );
   const dispatch = useDispatch();
 
+  /**
+   * Handle changes in the input fields and dispatch them to the store.
+   *
+   * @param {Event} event - The input change event
+   */
   const handleInputChange = (event) => {
     const { name, type } = event.target;
     const value =
       type === "checkbox" ? event.target.checked : event.target.value;
-    console.log("value ", value);
     dispatch(
       setNotificationSettings({ ...notificationsSettings, [name]: value })
     );
   };
 
   const notificationFrequencyOptions = [
-    { value: "instantly", label: "Instantly" },
-    { value: "daily-digest", label: "Daily Digest" },
-    { value: "weekly-digest", label: "Weekly Digest" },
+    { value: "instantly", label: __("Instantly") },
+    { value: "daily-digest", label: __("Daily Digest") },
+    { value: "weekly-digest", label: __("Weekly Digest") },
   ];
 
   return (
     <>
       <div className="setting-row">
-        <label>Enable Notifications:</label>
+        <label>{__("Enable Notifications:")}</label>
         <Switch
           name="enableNotifications"
           checked={notificationsSettings.enableNotifications}
@@ -37,7 +48,7 @@ function NotificationSettings() {
       </div>
 
       <div className="setting-row">
-        <label>Notification Recipients (comma-separated):</label>
+        <label>{__("Notification Recipients (comma-separated):")}</label>
         <Input
           type="text"
           name="notificationRecipients"
@@ -47,7 +58,7 @@ function NotificationSettings() {
       </div>
 
       <div className="setting-row">
-        <label>Notification Subject:</label>
+        <label>{__("Notification Subject:")}</label>
         <Input
           type="text"
           name="notificationSubject"
@@ -57,23 +68,23 @@ function NotificationSettings() {
       </div>
 
       <div className="setting-row">
-        <label>Notification Message:</label>
+        <label>{__("Notification Message:")}</label>
         <Textarea
           name="notificationMessage"
           value={notificationsSettings.notificationMessage || ""}
           onChange={handleInputChange}
         />
         <small>
-          You can use placeholders like {`{username}`} and {`{request_date}`}
+          {__("You can use placeholders like {username} and {request_date}")}
         </small>
       </div>
 
       <div className="setting-row">
-        <Button type="button">Send Test Notification</Button>
+        <Button type="button">{__("Send Test Notification")}</Button>
       </div>
 
       <div className="setting-row">
-        <label>Notification Frequency:</label>
+        <label>{__("Notification Frequency:")}</label>
         <Select
           name="notificationFrequency"
           value={notificationsSettings.notificationFrequency || ""}
@@ -83,7 +94,7 @@ function NotificationSettings() {
       </div>
 
       <div className="setting-row">
-        <label>Include Resolved Requests in Digest:</label>
+        <label>{__("Include Resolved Requests in Digest:")}</label>
         <Switch
           name="includeResolved"
           checked={notificationsSettings.includeResolved}

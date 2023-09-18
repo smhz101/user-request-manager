@@ -5,6 +5,19 @@ import { setNotificationSettings } from "../../../store/reducers/settings/notifi
 import { __ } from "@wordpress/i18n";
 
 /**
+ * @TODO: Enhance the user experience by providing feedback (like a toast notification) after settings are saved or after performing database cleanups * and imports.
+ *
+ * @TODO: Consider implementing a confirmation dialog before performing the database cleanup.
+ *
+ * @TODO: Error handling and feedback might be required if the dispatched action encounters an error, or if the data import/export process has issues.
+ *
+ * @TODO: The value attribute in the Input element with type "file" (name="importData") does not seem appropriate. Input of type "file" should not
+ * have a value property set by default for security reasons.
+ *
+ * @TODO: Implement the actual logic behind the "Database Cleanup", "Export Data", and "Import Data" buttons. They currently don't perform any actions.
+ */
+
+/**
  * NotificationSettings Component
  * This component allows users to configure their notification settings.
  *

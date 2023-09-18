@@ -1,12 +1,23 @@
 import React, { useState, useContext } from "react";
 import "./ConditionalBox.css";
 
-// Context to share the state between ConditionalBox and its children
+/**
+ * Context to share the state between ConditionalBox and its children.
+ * @type {React.Context}
+ */
 const ConditionalContext = React.createContext();
 
-// The main wrapper component
+/**
+ * ConditionalWrapper component.
+ *
+ * A main wrapper component that sets up a context for the children components
+ * to share the matched condition state.
+ *
+ * @param {Object} props - The component's properties.
+ * @param {React.ReactNode} props.children - React children elements.
+ * @return {React.ReactNode} Returns the wrapped children elements.
+ */
 function ConditionalWrapper({ children }) {
-  // In ConditionalWrapper
   const [matchedCondition, setMatchedCondition] = useState(null); // initialize to null
 
   return (
@@ -20,25 +31,31 @@ function ConditionalWrapper({ children }) {
   );
 }
 
-// Component for defining the condition
+/**
+ * CheckCondition component.
+ *
+ * A component for defining the condition and managing its state.
+ *
+ * @param {Object} props - The component's properties.
+ * @param {string|boolean} props.value - The value that defines the condition.
+ * @param {React.ReactNode} props.children - React child element.
+ * @return {React.ReactNode} Returns the child element with an attached onChange handler.
+ */
 function CheckCondition({ value, children }) {
   const { setMatchedCondition } = useContext(ConditionalContext);
 
   const handleInputChange = (e) => {
-    // If the input type is a checkbox or radio, use the checked property, otherwise use the value property
     const inputValue =
       e.target.type === "checkbox" || e.target.type === "radio"
         ? e.target.checked
         : e.target.value;
 
-    // Convert the value prop to the correct type (boolean or keep as is)
     const conditionToCheck =
       value === "on" ? true : value === "off" ? false : value;
 
     setMatchedCondition(inputValue === conditionToCheck);
   };
 
-  // Clone the single child and add the onChange handler to it
   return (
     <div className="Condition">
       {React.cloneElement(React.Children.only(children), {
@@ -48,7 +65,15 @@ function CheckCondition({ value, children }) {
   );
 }
 
-// Component to display content when the condition is true
+/**
+ * DisplayIfTrue component.
+ *
+ * A component to display content when the condition is true.
+ *
+ * @param {Object} props - The component's properties.
+ * @param {React.ReactNode} props.children - React children elements.
+ * @return {React.ReactNode|null} Returns the children if the condition is true, otherwise null.
+ */
 function DisplayIfTrue({ children }) {
   const { matchedCondition } = useContext(ConditionalContext);
   return matchedCondition === true ? (
@@ -56,7 +81,15 @@ function DisplayIfTrue({ children }) {
   ) : null;
 }
 
-// Component to display content when the condition is false
+/**
+ * DisplayIfFalse component.
+ *
+ * A component to display content when the condition is false.
+ *
+ * @param {Object} props - The component's properties.
+ * @param {React.ReactNode} props.children - React children elements.
+ * @return {React.ReactNode|null} Returns the children if the condition is false, otherwise null.
+ */
 function DisplayIfFalse({ children }) {
   const { matchedCondition } = useContext(ConditionalContext);
   return matchedCondition === false ? (

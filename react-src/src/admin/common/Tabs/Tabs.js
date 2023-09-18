@@ -1,6 +1,14 @@
 import React, { useState, cloneElement } from "react";
+import { __ } from "@wordpress/i18n";
 import "./Tabs.css";
 
+/**
+ * Tabs component to create a tabs navigation and display the associated content.
+ *
+ * @param {Object} props Component properties.
+ * @param {Array<React.ReactElement<{label: string}>>} props.children Tab child components.
+ * @returns {JSX.Element} Rendered tabs and content.
+ */
 function Tabs({ children }) {
   const [activeTab, setActiveTab] = useState(children[0].props.label);
 
@@ -15,7 +23,7 @@ function Tabs({ children }) {
               className={activeTab === label ? "active" : ""}
               onClick={() => setActiveTab(label)}
             >
-              {label}
+              {__(label, "user-request-manager")}
             </li>
           );
         })}

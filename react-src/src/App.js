@@ -1,5 +1,7 @@
 import React from "react";
+
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
+
 import "./App.css";
 import Dashboard from "./admin/components/Dashboard/Dashboard";
 import AllRequests from "./admin/components/AllRequests/AllRequests";
@@ -13,6 +15,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/all-requests" element={<AllRequests />} />
           <Route path="/settings" element={<Settings />} />
+          {/* Default redirect to /dashboard */}
+          {/* <Route path="*" element={<Navigate to="/dashboard" />} /> */}
         </Routes>
       </Router>
     </div>

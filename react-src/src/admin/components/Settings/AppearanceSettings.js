@@ -2,26 +2,40 @@ import React from "react";
 import { Input, Select, Textarea } from "../../common";
 import { useSelector, useDispatch } from "react-redux";
 import { setAppearanceSettings } from "../../../store/reducers/settings/appearanceSettingsSlice";
+import { __ } from "@wordpress/i18n"; // Internationalization function
 
+/**
+ * AppearanceSettings Component
+ * This component allows users to adjust their appearance settings.
+ *
+ * @returns {React.Component}
+ */
 function AppearanceSettings() {
   const appearanceSettings = useSelector((state) => state.appearanceSettings);
   const dispatch = useDispatch();
 
+  /**
+   * Handle changes in the input fields and dispatch them to the store.
+   *
+   * @param {Event} event - The input change event
+   */
   const handleInputChange = (event) => {
     const { name, type } = event.target;
     const value =
       type === "checkbox" ? event.target.checked : event.target.value;
-    console.log("value ", value);
     dispatch(setAppearanceSettings({ ...appearanceSettings, [name]: value }));
   };
 
   const fontFamilyOptions = [
-    { value: "roboto", label: "Roboto" },
-    { value: "playFair-display", label: "Playfair Display" },
+    { value: "roboto", label: __("Roboto", "user-request-manager") },
+    {
+      value: "playFair-display",
+      label: __("Playfair Display", "user-request-manager"),
+    },
   ];
 
   const fontSizeOptions = [
-    { value: "14px", label: "Default" },
+    { value: "14px", label: __("Default", "user-request-manager") },
     { value: "12px", label: "12px" },
     { value: "14px", label: "14px" },
     { value: "16px", label: "16px" },
@@ -31,7 +45,7 @@ function AppearanceSettings() {
   return (
     <>
       <div className="setting-row">
-        <label>Theme Color:</label>
+        <label>{__("Theme Color:", "user-request-manager")}</label>
         <Input
           type="color"
           name="themeColor"
@@ -41,7 +55,7 @@ function AppearanceSettings() {
       </div>
 
       <div className="setting-row">
-        <label>Font Family:</label>
+        <label>{__("Font Family:", "user-request-manager")}</label>
         <Select
           name="fontFamily"
           options={fontFamilyOptions}
@@ -51,7 +65,7 @@ function AppearanceSettings() {
       </div>
 
       <div className="setting-row">
-        <label>Font Size:</label>
+        <label>{__("Font Size:", "user-request-manager")}</label>
         <Select
           name="fontSize"
           options={fontSizeOptions}
@@ -61,19 +75,24 @@ function AppearanceSettings() {
       </div>
 
       <div className="setting-row">
-        <label>Custom CSS:</label>
+        <label>{__("Custom CSS:", "user-request-manager")}</label>
         <Textarea
           name="customCSS"
           value={appearanceSettings.customCSS || ""}
           onChange={handleInputChange}
         />
         <small>
-          Enter custom CSS to further style the plugin. Use with caution.
+          {__(
+            "Enter custom CSS to further style the plugin. Use with caution.",
+            "user-request-manager"
+          )}
         </small>
       </div>
 
       <div className="setting-row">
-        <label>Table Row Highlight Color:</label>
+        <label>
+          {__("Table Row Highlight Color:", "user-request-manager")}
+        </label>
         <Input
           type="color"
           name="tableRowHighlightColor"
@@ -83,7 +102,7 @@ function AppearanceSettings() {
       </div>
 
       <div className="setting-row">
-        <label>Button Hover Color:</label>
+        <label>{__("Button Hover Color:", "user-request-manager")}</label>
         <Input
           type="color"
           name="buttonHoverColor"
@@ -93,7 +112,7 @@ function AppearanceSettings() {
       </div>
 
       <div className="setting-row">
-        <label>Modal Background Color:</label>
+        <label>{__("Modal Background Color:", "user-request-manager")}</label>
         <Input
           type="color"
           name="modalBackgroundColor"

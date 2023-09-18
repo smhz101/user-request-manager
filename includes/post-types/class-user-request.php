@@ -2,14 +2,27 @@
 
 namespace URM\Includes\PostTypes;
 
+/**
+ * Class User_Request
+ *
+ * Handles the custom post type and taxonomy for user requests.
+ *
+ * @package URM\Includes\PostTypes
+ */
 class User_Request {
 
+    /**
+     * User_Request constructor.
+     */
     public function __construct() {
         add_action('init', array($this, 'register_post_type'));
         add_action('init', array($this, 'register_taxonomy'));
         add_action('init', array($this, 'add_default_terms'), 11);
     }
 
+    /**
+     * Registers the 'user_request' post type.
+     */
     public function register_post_type() {
         $args = array(
             'public' => false,
@@ -18,24 +31,29 @@ class User_Request {
             'exclude_from_search' => true,
             'publicly_queryable' => false,
             'show_in_nav_menus' => false,
-            'label'  => 'User Requests',
+            'label'  => __('User Requests', 'user-requests-manager'),
             'supports' => array('title', 'editor', 'author'),
             'show_in_rest' => true,
         );
         register_post_type('user_request', $args);
     }
 
+    /**
+     * Registers the 'status' taxonomy for the 'user_request' post type.
+     */
     public function register_taxonomy() {
         register_taxonomy('status', 'user_request', array(
-            'label' => 'Status',
+            'label' => __('Status', 'user-requests-manager'),
             'public' => false,
             'show_ui' => true,
             'show_in_rest' => true,
             'hierarchical' => true,
-            'supports' => array('title')
         ));
     }
 
+    /**
+     * Adds default terms for the 'status' taxonomy.
+     */
     public function add_default_terms() {
         $terms = array('unread', 'in-process', 'complete');
         foreach ($terms as $term) {

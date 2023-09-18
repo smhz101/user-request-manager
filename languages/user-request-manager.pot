@@ -1,0 +1,39 @@
+# Copyright (C) 2023 Muzammil Hussain
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: User Request Manager 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/user-request-manager\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-09-18T18:06:01+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: user-request-manager\n"
+
+#. Plugin Name of the plugin
+msgid "User Request Manager"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://wpthemepress.com/plugins/user-request-manager"
+msgstr ""
+
+#. Description of the plugin
+msgid "A comprehensive solution to manage user requests, integrate with WooCommerce, and provide dynamic admin interfaces using React."
+msgstr ""
+
+#. Author of the plugin
+msgid "Muzammil Hussain"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://muzammil.dev"
+msgstr ""
+
+#: user-request-manager.php:18
+msgid "No script kiddies please!"
+msgstr ""

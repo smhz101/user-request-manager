@@ -10,13 +10,28 @@ namespace URM\API;
 use WP_REST_Request;
 use WP_REST_Response;
 
+/**
+ * Class URM_API
+ *
+ * Handles custom API endpoints for the User Request Manager.
+ *
+ * @package URM\API
+ */
 class URM_API {
 
+    /**
+     * URM_API constructor.
+     */
     public function __construct() {
         add_action('rest_api_init', [$this, 'register_endpoints']);
     }
 
+    /**
+     * Registers the custom API endpoints.
+     */
     public function register_endpoints() {
+        // @TODO: Later will enhance permission checks for more security.
+
         register_rest_route('urm/v1', '/user-requests', array(
             'methods' => 'GET',
             'callback' => [$this, 'get_user_requests'],
@@ -62,10 +77,20 @@ class URM_API {
         ));
     }
 
+    /**
+     * Checks if the user is logged in.
+     *
+     * @return bool True if the user is logged in, otherwise false.
+     */
     public function permissions_check() {
         return is_user_logged_in();
     }
 
+    /**
+     * Fetches all user requests.
+     *
+     * @return WP_REST_Response The response object.
+     */
     public function get_user_requests() {
         $args = array(
             'post_type' => 'user_request',
@@ -111,6 +136,12 @@ class URM_API {
         return new WP_REST_Response(array('requests' => $requests), 200);
     }
 
+    /**
+     * Fetches requests based on the user's email or ID.
+     *
+     * @param WP_REST_Request $request The request object.
+     * @return WP_REST_Response The response object.
+     */
     public function get_request_by_user(WP_REST_Request $request) {
         // Get the identifier from the request's query parameters
         $identifier = $request->get_param('identifier');
@@ -161,6 +192,12 @@ class URM_API {
         return new WP_REST_Response(array('requests' => $messages), 200);
     }
 
+    /**
+     * Sends a response email to the user.
+     *
+     * @param WP_REST_Request $request The request object.
+     * @return WP_REST_Response The response object.
+     */
     public function send_response(WP_REST_Request $request) {
         $message_content = $request->get_param('message');
         $email = $request->get_param('email');
@@ -196,6 +233,12 @@ class URM_API {
         return new WP_REST_Response(array('message' => 'Response sent successfully.'), 200);
     }
 
+    /**
+     * Saves the user requests.
+     *
+     * @param WP_REST_Request $request The request object.
+     * @return WP_REST_Response The response object.
+     */
     public function save_user_requests(WP_REST_Request $request) {
         // Get the nonce from header
         $nonce = $request->get_header('X-WP-Nonce');
@@ -235,12 +278,24 @@ class URM_API {
         exit;
     }
 
+    /**
+     * Fetches the plugin's settings.
+     *
+     * @param WP_REST_Request $request The request object.
+     * @return WP_REST_Response The response object.
+     */
     public function get_settings(WP_REST_Request $request) {
         // Fetch settings from the database
         $settings = get_option('urm_settings', array());
         return new WP_REST_Response($settings, 200);
     }
 
+    /**
+     * Saves the plugin's settings.
+     *
+     * @param WP_REST_Request $request The request object.
+     * @return WP_REST_Response The response object.
+     */
     public function save_settings(WP_REST_Request $request) {
         $settings = $request->get_json_params();
         update_option('urm_settings', $settings);

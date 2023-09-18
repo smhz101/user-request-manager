@@ -5,16 +5,16 @@ import { setNotificationSettings } from "../../../store/reducers/settings/notifi
 import { __ } from "@wordpress/i18n";
 
 /**
- * @TODO: Enhance the user experience by providing feedback (like a toast notification) after settings are saved or after performing database cleanups * and imports.
+ * @TODO: Implement feedback or error handling for the "Send Test Notification" button. Currently, it doesn't seem to provide any feedback to the user
+ * after being clicked.
  *
- * @TODO: Consider implementing a confirmation dialog before performing the database cleanup.
+ * @TODO: Consider validating the notificationRecipients input to ensure that the provided emails are in the correct format.
  *
- * @TODO: Error handling and feedback might be required if the dispatched action encounters an error, or if the data import/export process has issues.
+ * @TODO: The "Notification Message" allows placeholders like {username} and {request_date}. Consider providing more documentation or a tooltip
+ * explaining the available placeholders and their usage.
  *
- * @TODO: The value attribute in the Input element with type "file" (name="importData") does not seem appropriate. Input of type "file" should not
- * have a value property set by default for security reasons.
- *
- * @TODO: Implement the actual logic behind the "Database Cleanup", "Export Data", and "Import Data" buttons. They currently don't perform any actions.
+ * @TODO: For enhanced security, the API key (if present) or any sensitive information should not be stored directly in Redux state without encryption
+ * or obfuscation.
  */
 
 /**
@@ -44,15 +44,21 @@ function NotificationSettings() {
   };
 
   const notificationFrequencyOptions = [
-    { value: "instantly", label: __("Instantly") },
-    { value: "daily-digest", label: __("Daily Digest") },
-    { value: "weekly-digest", label: __("Weekly Digest") },
+    { value: "instantly", label: __("Instantly", "user-request-manager") },
+    {
+      value: "daily-digest",
+      label: __("Daily Digest", "user-request-manager"),
+    },
+    {
+      value: "weekly-digest",
+      label: __("Weekly Digest", "user-request-manager"),
+    },
   ];
 
   return (
     <>
       <div className="setting-row">
-        <label>{__("Enable Notifications:")}</label>
+        <label>{__("Enable Notifications:", "user-request-manager")}</label>
         <Switch
           name="enableNotifications"
           checked={notificationsSettings.enableNotifications}
@@ -61,7 +67,12 @@ function NotificationSettings() {
       </div>
 
       <div className="setting-row">
-        <label>{__("Notification Recipients (comma-separated):")}</label>
+        <label>
+          {__(
+            "Notification Recipients (comma-separated):",
+            "user-request-manager"
+          )}
+        </label>
         <Input
           type="text"
           name="notificationRecipients"
@@ -71,7 +82,7 @@ function NotificationSettings() {
       </div>
 
       <div className="setting-row">
-        <label>{__("Notification Subject:")}</label>
+        <label>{__("Notification Subject:", "user-request-manager")}</label>
         <Input
           type="text"
           name="notificationSubject"
@@ -81,23 +92,28 @@ function NotificationSettings() {
       </div>
 
       <div className="setting-row">
-        <label>{__("Notification Message:")}</label>
+        <label>{__("Notification Message:", "user-request-manager")}</label>
         <Textarea
           name="notificationMessage"
           value={notificationsSettings.notificationMessage || ""}
           onChange={handleInputChange}
         />
         <small>
-          {__("You can use placeholders like {username} and {request_date}")}
+          {__(
+            "You can use placeholders like {username} and {request_date}",
+            "user-request-manager"
+          )}
         </small>
       </div>
 
       <div className="setting-row">
-        <Button type="button">{__("Send Test Notification")}</Button>
+        <Button type="button">
+          {__("Send Test Notification", "user-request-manager")}
+        </Button>
       </div>
 
       <div className="setting-row">
-        <label>{__("Notification Frequency:")}</label>
+        <label>{__("Notification Frequency:", "user-request-manager")}</label>
         <Select
           name="notificationFrequency"
           value={notificationsSettings.notificationFrequency || ""}
@@ -107,7 +123,9 @@ function NotificationSettings() {
       </div>
 
       <div className="setting-row">
-        <label>{__("Include Resolved Requests in Digest:")}</label>
+        <label>
+          {__("Include Resolved Requests in Digest:", "user-request-manager")}
+        </label>
         <Switch
           name="includeResolved"
           checked={notificationsSettings.includeResolved}

@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { __ } from "@wordpress/i18n";
 import { Form, Textarea, Button } from "../../common";
 import { fetchRequestsForUser, sendResponse } from "../../../services/api";
 
 import "./RequestDetails.css";
 
+/**
+ * Displays the details for a specific request.
+ *
+ * @param {Object} props - The component's props.
+ * @param {Object} props.request - The request details.
+ */
 function RequestDetails({ request }) {
   const [messages, setMessages] = useState([]);
   const [responseMessage, setResponseMessage] = useState("");
@@ -25,35 +32,48 @@ function RequestDetails({ request }) {
 
     try {
       const response = await sendResponse(request.email, responseMessage);
-      alert("Response sent successfully.");
-      // Optionally, you can clear the message field after sending
+      alert(__("Response sent successfully.", "user-request-manager"));
       setResponseMessage("");
       if (response.success) {
-        setSuccessMessage("Message sent successfully!");
+        setSuccessMessage(
+          __("Message sent successfully!", "user-request-manager")
+        );
       } else {
-        setSuccessMessage("Failed to send the message. Please try again.");
+        setSuccessMessage(
+          __(
+            "Failed to send the message. Please try again.",
+            "user-request-manager"
+          )
+        );
       }
 
       setIsLoading(false);
     } catch (error) {
-      alert("Failed to send response. Please try again later.");
+      alert(
+        __(
+          "Failed to send response. Please try again later.",
+          "user-request-manager"
+        )
+      );
     }
   };
 
   return (
     <div className="request-details-container">
-      <h2 className="request-user-name">Muzammil Hussain</h2>
+      <h2 className="request-user-name">
+        {__("Muzammil Hussain", "user-request-manager")}
+      </h2>
       <p className="request-email">{request.email}</p>
       <p className="request-date">{request.date}</p>
 
       <div className="request-details-content">
         {request && (
           <>
-            <h3 className="current-message-title">Current Message</h3>
-            {/* Current message content */}
+            <h3 className="current-message-title">
+              {__("Current Message", "user-request-manager")}
+            </h3>
             <p>{request.message}</p>
 
-            {/* Placeholder for previous messages */}
             <div className="messages">
               {messages.map((msg) => (
                 <div key={msg.id} className={`message ${msg.route}`}>
@@ -68,10 +88,13 @@ function RequestDetails({ request }) {
 
       <div className="response-form">
         <Form onSubmit={handleResponseSubmit}>
-          <h4>Send a Response</h4>
+          <h4>{__("Send a Response", "user-request-manager")}</h4>
 
           <Textarea
-            placeholder="Type your response here..."
+            placeholder={__(
+              "Type your response here...",
+              "user-request-manager"
+            )}
             value={responseMessage}
             onChange={(e) => setResponseMessage(e.target.value)}
             disabled={isLoading}
@@ -85,7 +108,7 @@ function RequestDetails({ request }) {
             {isLoading ? (
               <span className="dashicons dashicons-update"></span>
             ) : (
-              "Send Response"
+              __("Send Response", "user-request-manager")
             )}
           </Button>
 

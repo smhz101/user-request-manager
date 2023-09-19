@@ -9,12 +9,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-09-18T18:06:01+00:00\n"
+"POT-Creation-Date: 2023-09-18T20:32:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: user-request-manager\n"
 
 #. Plugin Name of the plugin
+#: admin/class-urm-admin.php:14
 msgid "User Request Manager"
 msgstr ""
 
@@ -27,6 +28,7 @@ msgid "A comprehensive solution to manage user requests, integrate with WooComme
 msgstr ""
 
 #. Author of the plugin
+#: react-src/src/admin/components/RequestDetails/RequestDetails.js:64
 msgid "Muzammil Hussain"
 msgstr ""
 
@@ -34,6 +36,369 @@ msgstr ""
 msgid "https://muzammil.dev"
 msgstr ""
 
+#: admin/class-urm-admin.php:15
+msgid "URM"
+msgstr ""
+
+#: admin/class-urm-admin.php:26
+#: admin/class-urm-admin.php:27
+msgid "Dashboard"
+msgstr ""
+
+#: admin/class-urm-admin.php:36
+#: admin/class-urm-admin.php:37
+msgid "All Requests"
+msgstr ""
+
+#: admin/class-urm-admin.php:46
+#: admin/class-urm-admin.php:47
+#: react-src/src/admin/components/Settings/Settings.js:68
+msgid "Settings"
+msgstr ""
+
+#: includes/post-types/class-user-request.php:34
+#: react-src/src/admin/components/AllRequests/AllRequests.js:43
+msgid "User Requests"
+msgstr ""
+
+#: includes/post-types/class-user-request.php:46
+#: react-src/src/admin/components/RequestTable/RequestTable.js:19
+msgid "Status"
+msgstr ""
+
+#: public/class-urm-public.php:33
+msgid "Open Modal"
+msgstr ""
+
+#: public/class-urm-public.php:49
+#: react-src/src/admin/components/RequestTable/RequestTable.js:17
+msgid "Email"
+msgstr ""
+
+#: public/class-urm-public.php:53
+msgid "Subject"
+msgstr ""
+
+#: public/class-urm-public.php:55
+msgid "Issue 1"
+msgstr ""
+
+#: public/class-urm-public.php:57
+msgid "Custom"
+msgstr ""
+
+#: public/class-urm-public.php:61
+msgid "Custom Subject"
+msgstr ""
+
+#: public/class-urm-public.php:65
+msgid "Request"
+msgstr ""
+
+#: public/class-urm-public.php:69
+msgid "Submit"
+msgstr ""
+
+#: public/class-urm-public.php:72
+msgid "Close"
+msgstr ""
+
 #: user-request-manager.php:18
 msgid "No script kiddies please!"
+msgstr ""
+
+#: react-src/src/admin/components/AllRequests/AllRequests.js:31
+#: react-src/src/admin/components/Settings/Settings.js:56
+msgid "Loading..."
+msgstr ""
+
+#: react-src/src/admin/components/AllRequests/AllRequests.js:35
+#: react-src/src/admin/components/Settings/Settings.js:60
+msgid "Error:"
+msgstr ""
+
+#: react-src/src/admin/components/RequestDetails/RequestDetails.js:35
+msgid "Response sent successfully."
+msgstr ""
+
+#: react-src/src/admin/components/RequestDetails/RequestDetails.js:39
+msgid "Message sent successfully!"
+msgstr ""
+
+#: react-src/src/admin/components/RequestDetails/RequestDetails.js:43
+msgid "Failed to send the message. Please try again."
+msgstr ""
+
+#: react-src/src/admin/components/RequestDetails/RequestDetails.js:53
+msgid "Failed to send response. Please try again later."
+msgstr ""
+
+#: react-src/src/admin/components/RequestDetails/RequestDetails.js:73
+msgid "Current Message"
+msgstr ""
+
+#: react-src/src/admin/components/RequestDetails/RequestDetails.js:91
+msgid "Send a Response"
+msgstr ""
+
+#: react-src/src/admin/components/RequestDetails/RequestDetails.js:94
+msgid "Type your response here..."
+msgstr ""
+
+#: react-src/src/admin/components/RequestDetails/RequestDetails.js:111
+msgid "Send Response"
+msgstr ""
+
+#: react-src/src/admin/components/RequestTable/RequestTable.js:15
+msgid "ID"
+msgstr ""
+
+#: react-src/src/admin/components/RequestTable/RequestTable.js:16
+msgid "User Name"
+msgstr ""
+
+#: react-src/src/admin/components/RequestTable/RequestTable.js:18
+msgid "Message"
+msgstr ""
+
+#: react-src/src/admin/components/RequestTable/RequestTable.js:20
+msgid "Date"
+msgstr ""
+
+#: react-src/src/admin/components/RequestTable/RequestTable.js:21
+msgid "Actions"
+msgstr ""
+
+#: react-src/src/admin/components/RequestTable/RequestTable.js:28
+msgid "View Details"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:45
+msgid "API Key:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:49
+msgid "Enter your API key"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:56
+msgid "Debug Mode:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:65
+msgid "Custom Endpoint:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:76
+msgid "Data Retention Period:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:80
+msgid "1 month"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:81
+msgid "3 months"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:82
+msgid "6 months"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:83
+msgid "1 year"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:84
+msgid "Indefinitely"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:93
+msgid "Database Cleanup"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:96
+msgid "This will remove old data. Use with caution."
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:105
+msgid "Export Data"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:110
+msgid "Import Data:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AdvancedSettings.js:118
+msgid "Import"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AppearanceSettings.js:36
+msgid "Roboto"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AppearanceSettings.js:39
+msgid "Playfair Display"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AppearanceSettings.js:44
+msgid "Default"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AppearanceSettings.js:54
+msgid "Theme Color:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AppearanceSettings.js:64
+msgid "Font Family:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AppearanceSettings.js:74
+msgid "Font Size:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AppearanceSettings.js:84
+msgid "Custom CSS:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AppearanceSettings.js:91
+msgid "Enter custom CSS to further style the plugin. Use with caution."
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AppearanceSettings.js:100
+msgid "Table Row Highlight Color:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AppearanceSettings.js:111
+msgid "Button Hover Color:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/AppearanceSettings.js:121
+msgid "Modal Background Color:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/GeneralSettings.js:31
+msgid "Unread"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/GeneralSettings.js:32
+msgid "In Progress"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/GeneralSettings.js:33
+msgid "Resolved"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/GeneralSettings.js:43
+msgid "Testing:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/GeneralSettings.js:56
+#: react-src/src/admin/components/Settings/GeneralSettings.js:67
+#: react-src/src/admin/components/Settings/GeneralSettings.js:107
+msgid "Enable Auto-Reply:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/GeneralSettings.js:82
+msgid "Activate User Requests:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/GeneralSettings.js:94
+msgid "Default Status for New Requests:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/GeneralSettings.js:119
+msgid "Auto-Reply Message:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/GeneralSettings.js:131
+msgid "Notification Email:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/GeneralSettings.js:144
+msgid "Request Limit per Day:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/GeneralSettings.js:157
+msgid "Enable Captcha Verification:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/NotificationsSettings.js:47
+msgid "Instantly"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/NotificationsSettings.js:50
+msgid "Daily Digest"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/NotificationsSettings.js:54
+msgid "Weekly Digest"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/NotificationsSettings.js:61
+msgid "Enable Notifications:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/NotificationsSettings.js:71
+msgid "Notification Recipients (comma-separated):"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/NotificationsSettings.js:85
+msgid "Notification Subject:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/NotificationsSettings.js:95
+msgid "Notification Message:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/NotificationsSettings.js:102
+msgid "You can use placeholders like {username} and {request_date}"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/NotificationsSettings.js:111
+msgid "Send Test Notification"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/NotificationsSettings.js:116
+msgid "Notification Frequency:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/NotificationsSettings.js:127
+msgid "Include Resolved Requests in Digest:"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/Settings.js:76
+msgid "General"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/Settings.js:79
+msgid "Notifications"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/Settings.js:82
+msgid "Appearance"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/Settings.js:85
+msgid "Advanced"
+msgstr ""
+
+#: react-src/src/admin/components/Settings/Settings.js:90
+msgid "Save All Changes"
+msgstr ""
+
+#: react-src/src/services/api.js:60
+msgid "Failed to send response:"
+msgstr ""
+
+#: react-src/src/services/thunk/apiThunks.js:26
+msgid "Failed to fetch settings:"
+msgstr ""
+
+#: react-src/src/services/thunk/apiThunks.js:42
+msgid "Settings saved successfully!"
+msgstr ""
+
+#: react-src/src/services/thunk/apiThunks.js:48
+msgid "Error saving settings: "
 msgstr ""

@@ -31,7 +31,7 @@ class User_Request {
             'exclude_from_search' => true,
             'publicly_queryable' => false,
             'show_in_nav_menus' => false,
-            'label'  => __('User Requests', 'user-requests-manager'),
+            'label'  => __('User Requests', 'user-request-manager'),
             'supports' => array('title', 'editor', 'author'),
             'show_in_rest' => true,
         );
@@ -43,7 +43,7 @@ class User_Request {
      */
     public function register_taxonomy() {
         register_taxonomy('status', 'user_request', array(
-            'label' => __('Status', 'user-requests-manager'),
+            'label' => __('Status', 'user-request-manager'),
             'public' => false,
             'show_ui' => true,
             'show_in_rest' => true,

@@ -252,7 +252,7 @@ class URM_API {
         $subject = sanitize_text_field($request->get_param('subject'));
         $message = sanitize_textarea_field($request->get_param('message'));
 
-            // Check for required fields
+        // Check for required fields
         if (empty($email) || empty($subject) || empty($message)) {
             return new WP_REST_Response(array('message' => 'All fields are required.'), 400);
         }
@@ -273,10 +273,18 @@ class URM_API {
             update_post_meta($post_id, '_urm_route', 'incoming');
         }
 
+        // Check if auto-reply is enabled and send the auto-reply email
+        $option = get_option('urm_settings');
+        if (isset($option['general']['autoReply']) && $option['general']['autoReply'] === true) {
+            $autoReplyMessage = $option['general']['autoReplyMessage'];
+            wp_mail($email, _e('Thank you for contacting us', 'user-request-manager'), $autoReplyMessage);
+        }
+
         return new WP_REST_Response(array('message' => 'Request submitted successfully.'), 200);
 
-        exit;
+        wp_die();
     }
+
 
     /**
      * Fetches the plugin's settings.

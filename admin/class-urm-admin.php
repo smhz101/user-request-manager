@@ -11,8 +11,8 @@ class URM_Admin_Menu {
 
     public function create_settings_page() {
         add_menu_page(
-            __('User Request Manager', 'user-requests-manager'),
-            __('URM', 'user-requests-manager'),
+            __('User Request Manager', 'user-request-manager'),
+            __('URM', 'user-request-manager'),
             'manage_options',
             'urm-dashboard',
             array($this, 'render_react_page'),
@@ -23,8 +23,8 @@ class URM_Admin_Menu {
         // Dashboard (this will duplicate the main menu item, so it's optional)
         add_submenu_page(
             'urm-dashboard',
-            __('Dashboard', 'user-requests-manager'),
-            __('Dashboard', 'user-requests-manager'),
+            __('Dashboard', 'user-request-manager'),
+            __('Dashboard', 'user-request-manager'),
             'manage_options',
             'urm-dashboard', // Same as parent slug to avoid duplicate menu items
             array($this, 'render_react_page')
@@ -33,8 +33,8 @@ class URM_Admin_Menu {
         // All Requests
         add_submenu_page(
             'urm-dashboard',
-            __('All Requests', 'user-requests-manager'),
-            __('All Requests', 'user-requests-manager'),
+            __('All Requests', 'user-request-manager'),
+            __('All Requests', 'user-request-manager'),
             'manage_options',
             'urm-all-requests',
             array($this, 'render_react_page')
@@ -43,8 +43,8 @@ class URM_Admin_Menu {
         // Settings
         add_submenu_page(
             'urm-dashboard',
-            __('Settings', 'user-requests-manager'),
-            __('Settings', 'user-requests-manager'),
+            __('Settings', 'user-request-manager'),
+            __('Settings', 'user-request-manager'),
             'manage_options',
             'urm-settings',
             array($this, 'render_react_page')

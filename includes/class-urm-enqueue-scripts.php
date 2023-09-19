@@ -17,6 +17,7 @@ class URM_Enqueue_Scripts {
     public function __construct() {
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
         add_action('wp_enqueue_scripts', array($this, 'custom_enqueue_scripts'));
+        add_action( 'init', array( $this, 'initialize_script_translations' ), 100 );
     }
 
     /**
@@ -46,6 +47,10 @@ class URM_Enqueue_Scripts {
             'rest_url' => rest_url(),
             'nonce' => wp_create_nonce('wp_rest')
         ));
+    }
+
+    function initialize_script_translations() {
+        wp_set_script_translations( 'urm-react-app', 'user-request-manager', URM_PATH . 'languages' );
     }
 
 }

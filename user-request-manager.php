@@ -38,6 +38,6 @@ $urm_frontend_loader = new URM\Frontend\URM_Public();
  * Load plugin text domain for translations.
  */
 function user_requests_manager_load_textdomain() {
-    load_plugin_textdomain('user-requests-manager', false, basename(dirname(__FILE__)) . '/languages');
+    load_plugin_textdomain('user-request-manager', false, URM_PATH . '/languages');
 }
 add_action('plugins_loaded', 'user_requests_manager_load_textdomain');

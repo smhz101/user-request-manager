@@ -27,6 +27,7 @@ require_once URM_PATH . 'admin/class-urm-admin.php';
 require_once URM_PATH . 'includes/class-urm-enqueue-scripts.php';
 require_once URM_PATH . 'includes/api/class-urm-api.php';
 require_once URM_PATH . 'public/class-urm-public.php';
+require_once URM_PATH . 'includes/class-urm-installation.php';
 
 // Instantiate classes
 $urm_post_type = new URM\Includes\PostTypes\User_Request();
@@ -41,3 +42,8 @@ function user_requests_manager_load_textdomain() {
     load_plugin_textdomain('user-request-manager', false, URM_PATH . '/languages');
 }
 add_action('plugins_loaded', 'user_requests_manager_load_textdomain');
+
+function urm_activate_plugin() {
+    URM\Includes\URM_Installation::instance()->install();
+}
+register_activation_hook(__FILE__, 'urm_activate_plugin');

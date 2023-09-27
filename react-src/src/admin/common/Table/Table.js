@@ -13,22 +13,32 @@ import "./Table.css";
  */
 function Table({ headers, data, renderCell }) {
   return (
-    <table className="urm-table">
+    <table className="widefat fixed striped urm-table">
       <thead>
         <tr>
-          {headers.map((header, index) => (
-            <th key={index}>{__(header.label, "user-request-manager")}</th>
-          ))}
+          {headers.map((header, index) => {
+            const headerLabel = header.label.replace(/ /g, "-").toLowerCase();
+            const className = `${headerLabel} ${headerLabel}-column`;
+            return (
+              <th key={index} className={className}>
+                {__(header.label, "user-request-manager")}
+              </th>
+            );
+          })}
         </tr>
       </thead>
       <tbody>
         {data.map((row, rowIndex) => (
           <tr key={rowIndex}>
-            {headers.map((header, cellIndex) => (
-              <td key={cellIndex}>
-                {renderCell ? renderCell(row, header.key) : row[header.key]}
-              </td>
-            ))}
+            {headers.map((header, cellIndex) => {
+              const headerLabel = header.label.replace(/ /g, "-").toLowerCase();
+              const className = `${headerLabel} ${headerLabel}-column`;
+              return (
+                <td key={cellIndex} className={className}>
+                  {renderCell ? renderCell(row, header.key) : row[header.key]}
+                </td>
+              );
+            })}
           </tr>
         ))}
       </tbody>

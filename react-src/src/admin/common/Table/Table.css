@@ -1,15 +1,22 @@
 .urm-table {
-  width: 100%;
-  border-collapse: collapse;
 }
 
 .urm-table th,
 .urm-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
 }
 
 .urm-table th {
-  background-color: #f2f2f2;
+}
+
+th.id-column {
+  width: 5%;
+}
+
+th.message-column {
+  width: 40%;
+  border-radius: 0;
+}
+
+th.status-column {
+  width: 5%;
 }

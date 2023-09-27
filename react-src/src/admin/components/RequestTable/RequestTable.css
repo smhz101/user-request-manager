@@ -36,3 +36,30 @@
 .request-table button:hover {
   background-color: #005177;
 }
+
+/* Unread */
+.tag-unread {
+  background-color: #f44336; /* Red */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+/* Read */
+.tag-read {
+  background-color: #2196f3; /* Blue */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+/* Complete */
+.tag-complete {
+  background-color: #4caf50; /* Green */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}

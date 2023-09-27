@@ -22,6 +22,12 @@ function RequestTable({ requests, onSelectRequest }) {
   ];
 
   const renderCell = (row, key) => {
+    if (key === "status") {
+      const status = row[key]; // Get the status value from the row
+      const className = `tag-${status.toLowerCase()}`; // Convert status to lowercase and form the class name
+      return <span className={className}>{status}</span>; // Apply the class name to the span
+    }
+
     if (key === "actions") {
       return (
         <Button onClick={() => onSelectRequest(row)}>

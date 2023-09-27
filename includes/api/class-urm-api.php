@@ -44,6 +44,19 @@ class URM_API {
             'permission_callback' => '__return_true',
         ));
 
+        register_rest_route('urm/v1', '/user-requests/(?P<id>\d+)/status', array(
+            'methods' => 'POST',
+            'callback' => [$this, 'update_request_status'],
+            'args' => array(
+                'id' => array(
+                    'validate_callback' => function($param, $request, $key) {
+                        return is_numeric($param);
+                    }
+                ),
+            ),
+            'permission_callback' => '__return_true',
+        ));
+
         register_rest_route('urm/v1', '/settings', array(
             'methods' => 'GET',
             'callback' => [$this, 'get_settings'],
@@ -283,6 +296,51 @@ class URM_API {
         return new WP_REST_Response(array('message' => 'Request submitted successfully.'), 200);
 
         wp_die();
+    }
+
+    /**
+     * Updates the status of a user request.
+     *
+     * This function updates the status taxonomy term for a specified 'user_request' post type.
+     * It accepts a WP_REST_Request object that contains the request parameters, including the request ID and the new status.
+     *
+     * @param WP_REST_Request $request The WP_REST_Request object, containing request parameters.
+     *
+     * @return WP_REST_Response A WP_REST_Response object containing the response data.
+     *
+     * @throws WP_Error If the nonce verification fails.
+     * @throws WP_Error If the term update fails.
+     */
+    public function update_request_status(WP_REST_Request $request) {
+        // Get the nonce from header
+        $nonce = $request->get_header('X-WP-Nonce');
+
+        // Verify the nonce
+        if (!wp_verify_nonce($nonce, 'wp_rest')) {
+            return new WP_REST_Response(array('message' => 'Nonce verification failed.'), 401);
+        }
+
+        // Get the ID and status from the request
+        $id = $request['id'];
+
+        $json = $request->get_json_params();
+        $status = isset($json['status']) ? $json['status'] : null;
+
+        $check_status = term_exists($status, 'status');
+
+        // Verify that the term exists
+        if (!$check_status) {
+            return new WP_REST_Response(array('message' => 'Invalid status'), 400);
+        }
+
+        // Update the taxonomy term for this post
+        $updated = wp_set_post_terms($id, array($check_status['term_id']), 'status');
+
+        if (is_wp_error($updated)) {
+            return new WP_REST_Response(array('message' => $updated->get_error_message()), 500);
+        }
+
+        return new WP_REST_Response(array('message' => 'Status updated successfully'), 200);
     }
 
 

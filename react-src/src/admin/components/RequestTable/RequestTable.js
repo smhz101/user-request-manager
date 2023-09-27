@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { __ } from "@wordpress/i18n";
 import { Button, Table } from "../../common";
 import "./RequestTable.css";
@@ -21,11 +22,18 @@ function RequestTable({ requests, onSelectRequest }) {
     { key: "actions", label: __("Actions", "user-request-manager") },
   ];
 
+  const StatusCell = ({ row }) => {
+    const status =
+      useSelector((state) => state.requests.requestStatuses[row.id]) ||
+      row.status;
+
+    const className = `tag-${status.toLowerCase()}`;
+    return <span className={className}>{status}</span>;
+  };
+
   const renderCell = (row, key) => {
     if (key === "status") {
-      const status = row[key]; // Get the status value from the row
-      const className = `tag-${status.toLowerCase()}`; // Convert status to lowercase and form the class name
-      return <span className={className}>{status}</span>; // Apply the class name to the span
+      return <StatusCell row={row} />;
     }
 
     if (key === "actions") {

@@ -55,7 +55,7 @@ class User_Request {
      * Adds default terms for the 'status' taxonomy.
      */
     public function add_default_terms() {
-        $terms = array('unread', 'in-process', 'complete');
+        $terms = array('unread', 'read', 'complete');
         foreach ($terms as $term) {
             if (!term_exists($term, 'status')) {
                 wp_insert_term($term, 'status');

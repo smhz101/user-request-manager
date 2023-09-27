@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateRequestStatusThunk } from "../../../services/thunk/apiThunks";
+
 import { __ } from "@wordpress/i18n";
 import { Form, Textarea, Button } from "../../common";
 import { fetchRequestsForUser, sendResponse } from "../../../services/api";
@@ -12,6 +15,8 @@ import "./RequestDetails.css";
  * @param {Object} props.request - The request details.
  */
 function RequestDetails({ request }) {
+  const dispatch = useDispatch();
+
   const [messages, setMessages] = useState([]);
   const [responseMessage, setResponseMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -22,10 +27,11 @@ function RequestDetails({ request }) {
       if (request && request.email) {
         const data = await fetchRequestsForUser(request.email);
         setMessages(data.requests || []);
+        dispatch(updateRequestStatusThunk(request.id, "read"));
       }
     }
     fetchData();
-  }, [request]);
+  }, [request, dispatch]);
 
   const handleResponseSubmit = async (e) => {
     e.preventDefault();

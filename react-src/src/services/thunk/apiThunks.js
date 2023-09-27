@@ -1,10 +1,15 @@
-import { fetchSettings, saveSettings } from "../api";
+import { fetchSettings, saveSettings, updateRequestStatus } from "../api";
 import { __ } from "@wordpress/i18n";
 
 import { setGeneralSettings } from "../../store/reducers/settings/generalSettingsSlice";
 import { setNotificationSettings } from "../../store/reducers/settings/notificationSettingsSlice";
 import { setAppearanceSettings } from "../../store/reducers/settings/appearanceSettingsSlice";
 import { setAdvancedSettings } from "../../store/reducers/settings/advancedSettingsSlice";
+
+import {
+  requestStatusUpdated,
+  requestStatusUpdateFailed,
+} from "../../store/reducers/requests/requestsSlice";
 
 /**
  * Thunk action to fetch settings from the server and dispatch them to the store.
@@ -46,6 +51,34 @@ export const saveSettingsThunk = (settings) => async (dispatch) => {
   } catch (err) {
     console.log(
       __("Error saving settings: ", "user-request-manager") + err.message
+    );
+  }
+};
+
+/**
+ * Thunk action to update the status of a user request.
+ *
+ * @param {number|string} id - The ID of the request to be updated.
+ * @param {string} status - The new status to be assigned to the request.
+ * @returns {Function} Thunk action.
+ */
+export const updateRequestStatusThunk = (id, status) => async (dispatch) => {
+  try {
+    await updateRequestStatus(id, status);
+
+    // Dispatch a success action to update the Redux state.
+    dispatch(requestStatusUpdated({ id, status }));
+
+    console.log(
+      __("Request status updated successfully!", "user-request-manager")
+    );
+  } catch (err) {
+    // Dispatch an error action to update the Redux state.
+    dispatch(requestStatusUpdateFailed({ id, error: err.message }));
+
+    console.log(
+      __("Error updating request status: ", "user-request-manager") +
+        err.message
     );
   }
 };

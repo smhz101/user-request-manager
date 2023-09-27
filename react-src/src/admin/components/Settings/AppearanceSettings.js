@@ -1,8 +1,9 @@
-import React from "react";
-import { Input, Select, Textarea } from "../../common";
+import React, { useEffect, useState } from "react";
+import { Input, Select, Select2, Textarea } from "../../common";
 import { useSelector, useDispatch } from "react-redux";
 import { setAppearanceSettings } from "../../../store/reducers/settings/appearanceSettingsSlice";
 import { __ } from "@wordpress/i18n"; // Internationalization function
+import axios from "axios";
 
 /**
  * @TODO: Enhance the user experience by providing feedback (like a toast notification) after settings are saved.
@@ -20,6 +21,37 @@ function AppearanceSettings() {
   const appearanceSettings = useSelector((state) => state.appearanceSettings);
   const dispatch = useDispatch();
 
+  const [googleFonts, setGoogleFonts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyAusi0Mj0HcqgfAYFe7TTyqdHFq3EcJe2A"
+      )
+      .then((response) => {
+        const fontOptions = response.data.items.map((font) => ({
+          value: font.family,
+          label: font.family,
+        }));
+        setGoogleFonts(fontOptions);
+      })
+      .catch((error) => {
+        console.error("Error fetching Google Fonts:", error);
+      });
+  }, []);
+
+  const handleFontChange = (selectedOption) => {
+    // Dispatch the new fontFamily to your Redux store
+    dispatch(
+      setAppearanceSettings({
+        ...appearanceSettings,
+        fontFamily: selectedOption.value,
+      })
+    );
+  };
+
+  console.log("Fonts list: ", googleFonts);
+
   /**
    * Handle changes in the input fields and dispatch them to the store.
    *
@@ -32,20 +64,38 @@ function AppearanceSettings() {
     dispatch(setAppearanceSettings({ ...appearanceSettings, [name]: value }));
   };
 
-  const fontFamilyOptions = [
-    { value: "roboto", label: __("Roboto", "user-request-manager") },
-    {
-      value: "playFair-display",
-      label: __("Playfair Display", "user-request-manager"),
-    },
-  ];
-
   const fontSizeOptions = [
     { value: "14px", label: __("Default", "user-request-manager") },
     { value: "12px", label: "12px" },
     { value: "14px", label: "14px" },
     { value: "16px", label: "16px" },
     { value: "18px", label: "18px" },
+  ];
+
+  // Add this to your options array
+  const modalAnimationOptions = [
+    { value: "fade-in", label: __("Fade In", "user-request-manager") },
+    {
+      value: "slide-in-right",
+      label: __("Slide In from Right", "user-request-manager"),
+    },
+    {
+      value: "slide-in-left",
+      label: __("Slide In from Left", "user-request-manager"),
+    },
+    {
+      value: "slide-in-top",
+      label: __("Slide In from Top", "user-request-manager"),
+    },
+    {
+      value: "slide-in-bottom",
+      label: __("Slide In from Bottom", "user-request-manager"),
+    },
+    { value: "zoom-in", label: __("Zoom In", "user-request-manager") },
+    { value: "rotate-in", label: __("Rotate In", "user-request-manager") },
+    { value: "bounce-in", label: __("Bounce In", "user-request-manager") },
+    { value: "flip-in", label: __("Flip In", "user-request-manager") },
+    { value: "roll-in", label: __("Roll In", "user-request-manager") },
   ];
 
   return (
@@ -62,12 +112,18 @@ function AppearanceSettings() {
 
       <div className="setting-row">
         <label>{__("Font Family:", "user-request-manager")}</label>
-        <Select
-          name="fontFamily"
-          options={fontFamilyOptions}
-          value={appearanceSettings.fontFamily || ""}
-          onChange={handleInputChange}
-        />
+        {googleFonts.length > 0 && (
+          <Select2
+            name="fontFamily"
+            options={googleFonts}
+            value={googleFonts.find(
+              (option) => option.value === appearanceSettings.fontFamily
+            )}
+            onChange={handleFontChange}
+            isSearchable={true}
+            isMulti={false}
+          />
+        )}
       </div>
 
       <div className="setting-row">
@@ -123,6 +179,28 @@ function AppearanceSettings() {
           type="color"
           name="modalBackgroundColor"
           value={appearanceSettings.modalBackgroundColor || ""}
+          onChange={handleInputChange}
+        />
+      </div>
+
+      <div className="setting-row">
+        <label>{__("Modal Animation Style:", "user-request-manager")}</label>
+        <Select
+          name="modalAnimationStyle"
+          options={modalAnimationOptions}
+          value={appearanceSettings.modalAnimationStyle || ""}
+          onChange={handleInputChange}
+        />
+      </div>
+
+      <div className="setting-row">
+        <label>
+          {__("Modal Animation Duration (ms):", "user-request-manager")}
+        </label>
+        <Input
+          type="number"
+          name="modalAnimationDuration"
+          value={appearanceSettings.modalAnimationDuration || ""}
           onChange={handleInputChange}
         />
       </div>

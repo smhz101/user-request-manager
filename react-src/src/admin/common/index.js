@@ -9,6 +9,7 @@ export { default as Input } from "./Input/Input";
 export { default as Modal } from "./Modal/Modal";
 export { default as Radio } from "./Radio/Radio";
 export { default as Select } from "./Select/Select";
+export { default as Select2 } from "./Select2/Select2";
 export { default as Switch } from "./Switch/Switch";
 export { default as Table } from "./Table/Table";
 export { default as Tabs } from "./Tabs/Tabs";

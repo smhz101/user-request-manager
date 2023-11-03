@@ -58,3 +58,58 @@
     opacity: 1;
   }
 }
+
+
+/* Centered Modal */
+.urm-modal.center {
+	width: auto;
+	height: auto;
+	margin: auto;
+	opacity: 0;
+	transform: scale(0);
+	animation-name: zoomIn;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+}
+
+.urm-modal.center button.urm-modal-close {
+	top: 5px;
+	right: 5px;
+}
+
+.urm-modal.center button.urm-modal-close:hover {
+	background-color: transparent;
+}
+
+.urm-modal.center > h4 {
+	margin-top: 0
+}
+
+.urm-modal.center > button.urm-button {
+	margin-right: 10px;
+}
+
+	/* Off-canvas Modal */
+.urm-modal.off-canvas {
+	/* Keep existing styles */
+}
+
+/* Overlay styles for centered modal */
+.urm-modal-overlay.center {
+	justify-content: center;
+	align-items: center;
+}
+
+/* Overlay styles for off-canvas modal */
+.urm-modal-overlay.off-canvas {
+	justify-content: flex-end;
+	align-items: center;
+}
+
+/* Zoom in animation for centered modal */
+@keyframes zoomIn {
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}

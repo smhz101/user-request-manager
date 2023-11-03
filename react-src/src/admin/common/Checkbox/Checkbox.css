@@ -3,3 +3,37 @@
   align-items: center;
   gap: 10px;
 }
+
+/* Hidden Checkbox */
+.urm-checkbox-group .hidden-checkbox {
+	display: none;
+}
+
+/* Label styling */
+.urm-checkbox-group label {
+	/* Add any styling you want for the label here */
+}
+
+/* Description styling */
+.urm-checkbox-group .urm-input-description {
+	font-size: 12px;
+	color: #666;
+	margin-top: 5px;
+}
+
+/* Image Checkbox */
+.urm-checkbox-group.image-checkbox {
+	/* Style when it's an image checkbox */
+}
+
+.urm-checkbox-group.image-checkbox .checkbox-image {
+	/* Add image styling here */
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
+}
+
+.urm-checkbox-group.image-checkbox .hidden-checkbox:checked + .checkbox-image {
+	/* Add styling for checked state, e.g., a border or shadow */
+	border: 2px solid #007bff;
+}

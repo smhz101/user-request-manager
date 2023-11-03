@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import "./ConditionalBox.css";
+import React, { useState, useContext } from 'react';
+import './ConditionalBox.css';
 
 /**
  * Context to share the state between ConditionalBox and its children.
@@ -17,18 +17,17 @@ const ConditionalContext = React.createContext();
  * @param {React.ReactNode} props.children - React children elements.
  * @return {React.ReactNode} Returns the wrapped children elements.
  */
-function ConditionalWrapper({ children }) {
-  const [matchedCondition, setMatchedCondition] = useState(null); // initialize to null
+function ConditionalWrapper({ children, initialValue, inline }) {
+	const [matchedCondition, setMatchedCondition] = useState(!!initialValue);
+	const className = inline ? 'ConditionalBox inline' : 'ConditionalBox';
 
-  return (
-    <div className="ConditionalBox">
-      <ConditionalContext.Provider
-        value={{ matchedCondition, setMatchedCondition }}
-      >
-        {children}
-      </ConditionalContext.Provider>
-    </div>
-  );
+	return (
+		<div className={className}>
+			<ConditionalContext.Provider value={{ matchedCondition, setMatchedCondition }}>
+				{children}
+			</ConditionalContext.Provider>
+		</div>
+	);
 }
 
 /**
@@ -42,27 +41,23 @@ function ConditionalWrapper({ children }) {
  * @return {React.ReactNode} Returns the child element with an attached onChange handler.
  */
 function CheckCondition({ value, children }) {
-  const { setMatchedCondition } = useContext(ConditionalContext);
+	const { setMatchedCondition } = useContext(ConditionalContext);
 
-  const handleInputChange = (e) => {
-    const inputValue =
-      e.target.type === "checkbox" || e.target.type === "radio"
-        ? e.target.checked
-        : e.target.value;
+	const handleInputChange = (e) => {
+		const inputValue = e.target.type === 'checkbox' || e.target.type === 'radio' ? e.target.checked : e.target.value;
 
-    const conditionToCheck =
-      value === "on" ? true : value === "off" ? false : value;
+		const conditionToCheck = value === 'on' ? true : value === 'off' ? false : value;
 
-    setMatchedCondition(inputValue === conditionToCheck);
-  };
+		setMatchedCondition(inputValue === conditionToCheck);
+	};
 
-  return (
-    <div className="Condition">
-      {React.cloneElement(React.Children.only(children), {
-        onChange: handleInputChange,
-      })}
-    </div>
-  );
+	return (
+		<div className="Condition">
+			{React.cloneElement(React.Children.only(children), {
+				onChange: handleInputChange,
+			})}
+		</div>
+	);
 }
 
 /**
@@ -75,10 +70,8 @@ function CheckCondition({ value, children }) {
  * @return {React.ReactNode|null} Returns the children if the condition is true, otherwise null.
  */
 function DisplayIfTrue({ children }) {
-  const { matchedCondition } = useContext(ConditionalContext);
-  return matchedCondition === true ? (
-    <div className="True">{children}</div>
-  ) : null;
+	const { matchedCondition } = useContext(ConditionalContext);
+	return matchedCondition === true ? <div className="True">{children}</div> : null;
 }
 
 /**
@@ -91,15 +84,13 @@ function DisplayIfTrue({ children }) {
  * @return {React.ReactNode|null} Returns the children if the condition is false, otherwise null.
  */
 function DisplayIfFalse({ children }) {
-  const { matchedCondition } = useContext(ConditionalContext);
-  return matchedCondition === false ? (
-    <div className="False">{children}</div>
-  ) : null;
+	const { matchedCondition } = useContext(ConditionalContext);
+	return matchedCondition === false ? <div className="False">{children}</div> : null;
 }
 
 export {
-  ConditionalWrapper as ConditionalBox,
-  CheckCondition as Condition,
-  DisplayIfTrue as True,
-  DisplayIfFalse as False,
+	ConditionalWrapper as ConditionalBox,
+	CheckCondition as Condition,
+	DisplayIfTrue as True,
+	DisplayIfFalse as False,
 };

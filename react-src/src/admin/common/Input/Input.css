@@ -45,3 +45,57 @@ input[type="color"] {
   flex-direction: row;
   align-items: center; /* Vertically align items to the center */
 }
+
+/* Small input styles */
+.urm-input-group.small,
+.urm-input.small {
+}
+
+.urm-input.small {
+	width: 90px;
+}
+
+/* Medium input styles */
+.urm-input-group.medium,
+.urm-input.medium {
+
+}
+
+.urm-input.medium {
+	width: 240px;
+}
+
+/* Large input styles */
+.urm-input-group.large,
+.urm-input.large {
+
+}
+
+.urm-input.large {
+	width: 100%;
+}
+
+/* Description styles */
+.urm-input-description {
+	font-size: 12px;
+	color: #666;
+	margin-top: 5px;
+}
+
+.urm-input-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.urm-input-wrapper.inline {
+	flex-direction: row;
+}
+
+.urm-input-prefix,
+.urm-input-suffix {
+	padding: 10px;
+	background-color: #f1f1f1;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}

@@ -6,6 +6,10 @@
   margin: 10px 0;
 }
 
+.ConditionalBox .Condition {
+	margin-bottom: 10px;
+}
+
 /* Styling for the input inside the Condition */
 .Condition input[type="checkbox"],
 .Condition input[type="radio"],
@@ -24,4 +28,27 @@
   padding: 5px;
   border: 1px solid #e0e0e0;
   border-radius: 3px;
+}
+
+.ConditionalBox.inline {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.ConditionalBox.inline .Condition {
+	padding-right: 50px;
+}
+
+.ConditionalBox.inline .True,
+.ConditionalBox.inline .False {
+	margin-top: 0;
+}
+
+.ConditionalBox.inline .True .form-control,
+.ConditionalBox.inline .False .form-control {
+	margin-top: 0;
+	border-bottom: 0;
+	margin-bottom: 0;
+	padding-bottom: 5px;
 }

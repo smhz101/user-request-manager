@@ -41,3 +41,32 @@
   display: block;
   background-color: #fff;
 }
+
+/* Add these styles for vertical tabs */
+.urm-tabs-container.vertical {
+	flex-direction: row;
+	margin-bottom: 0;
+}
+
+.urm-tabs-container.vertical .urm-tabs {
+	flex-direction: column;
+	width: 200px;
+}
+
+.urm-tabs-container.vertical li {
+	margin-right: 0;
+}
+
+.urm-tabs-container.vertical li:last-child {
+	border-bottom: 1px solid #ddd;
+}
+
+.urm-tabs-container.vertical li.active {
+	border-top: 1px solid #ddd;
+	border-left: 2px solid #333;
+}
+
+.urm-tabs-container.vertical .tab-content {
+	margin-left: 10px;
+	width: 100%;
+}

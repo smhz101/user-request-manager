@@ -1,0 +1,38 @@
+/* ComponentGrouper.css */
+
+.group-element {
+	border: 1px solid #dddddd;
+	padding: 16px;
+	margin-bottom: 16px;
+	position: relative;
+	border-radius: 0;
+	background-color: #f9f9f9;
+}
+
+.group-element h3 {
+	margin: 0 0 20px 0;
+	font-size: 1rem;
+	background-color: #f9f9f9;
+}
+
+.group-body,
+.group-body .setting-row {
+	margin-bottom: 0;
+}
+
+.group-body .form-control {
+	margin: 10px 0;
+	border-bottom: 1px solid #e9e9e9;
+	padding-bottom: 10px;
+}
+
+.group-body .setting-row div.form-control:last-child {
+	margin-bottom: 0;
+	border-bottom: 0;
+	padding: 0;
+}
+
+.group-footer {
+	border-top: 1px solid #ccc;
+	padding-top: 16px;
+}

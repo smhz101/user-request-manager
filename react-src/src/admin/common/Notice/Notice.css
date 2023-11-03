@@ -1,0 +1,54 @@
+.notice-bar {
+	padding: 10px 15px;
+	margin: 8px 0;
+	border-radius: 4px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
+div.wpauctionify-wrap div.notice-bar.info,
+div.wpauctionify-wrap div.notice-bar.success,
+div.wpauctionify-wrap div.notice-bar.error,
+div.wpauctionify-wrap div.notice-bar.warning {
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	border-top-color: transparent;
+	margin-bottom: 0;
+}
+
+div.wpauctionify-wrap div.notice-bar.info {
+	background-color: #d1ecf1;
+	color: #0c5460;
+}
+
+div.wpauctionify-wrap div.notice-bar.success {
+	background-color: #d4edda;
+	color: #155724;
+}
+
+div.wpauctionify-wrap div.notice-bar.error {
+	background-color: #f8d7da;
+	color: #721c24;
+}
+
+div.wpauctionify-wrap div.notice-bar.warning {
+	background-color: #fff3cd;
+	color: #856404;
+}
+
+.dismiss-button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 24px;
+	line-height: 1;
+	color: inherit;
+}
+
+.notice-icon {
+	margin-right: 8px;
+	display: inline-flex;
+	align-items: center;
+}

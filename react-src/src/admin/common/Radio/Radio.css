@@ -1,5 +1,66 @@
 .urm-radio-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+}
+
+.urm-radio-group input[type="radio"] {
+	/* Add if not using autoprefixer */
+	-webkit-appearance: none;
+	/* Remove most all native input styles */
+	appearance: none;
+	/* For iOS < 15 */
+	background-color: transparent;
+	/* Not removed via appearance */
+	margin: 0;
+
+	font: inherit;
+	color: #ccc;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #ccc;
+	border-radius: 50%;
+	transform: translateY(-0.075em);
+
+	display: grid;
+	place-content: center;
+}
+
+.urm-radio-group label::before {
+	content: "";
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	transform: scale(0);
+	transition: 120ms transform ease-in-out;
+	box-shadow: inset 1em 1em #ccc;
+	/* Windows High Contrast Mode */
+	background-color: transparent;
+}
+
+.urm-radio-group input[type="radio"]:checked + label::before {
+	transform: scale(1);
+}
+
+.urm-radio-group label {
+	vertical-align: middle;
+}
+
+.urm-radio-input {
+	display: none;
+}
+
+.urm-radio-label {
+	cursor: pointer;
+}
+
+.urm-radio-image {
+	width: 50px; /* Or whatever size you prefer */
+	height: 50px;
+	border: 2px solid transparent;
+}
+
+.urm-radio-input:checked + .urm-radio-label .urm-radio-image {
+	border-color: blue; /* Highlight color when selected */
 }

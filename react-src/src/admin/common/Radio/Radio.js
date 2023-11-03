@@ -1,9 +1,9 @@
-import React from 'react';
-import { __ } from '@wordpress/i18n';
+import React from "react";
+import { __ } from "@wordpress/i18n";
 
-import { useRadioGroup } from '../RadioGroup/RadioGroup';
+import { useRadioGroup } from "../RadioGroup/RadioGroup";
 
-import './Radio.css';
+import "./Radio.css";
 
 /**
  * Radio component to render a radio input field.
@@ -15,20 +15,31 @@ import './Radio.css';
  * @returns {JSX.Element} Rendered radio input.
  */
 function Radio({ label, description, imageSrc, ...props }) {
-	const { name, onChange } = useRadioGroup();
-	return (
-		<div className="urm-radio-group">
-			<input type="radio" name={name} onChange={onChange} id={props.value} className="urm-radio-input" {...props} />
-			<label htmlFor={props.value} className="urm-radio-label">
-				{imageSrc ? (
-					<img src={imageSrc} alt={label} className="urm-radio-image" />
-				) : (
-					<span>{__(label, 'wp-auctionify')}</span>
-				)}
-			</label>
-			{description && <span className="urm-input-description">{__(description, 'wp-auctionify')}</span>}
-		</div>
-	);
+  const { name, onChange } = useRadioGroup();
+  return (
+    <div className="urm-radio-group">
+      <input
+        type="radio"
+        name={name}
+        onChange={onChange}
+        id={props.value}
+        className="urm-radio-input"
+        {...props}
+      />
+      <label htmlFor={props.value} className="urm-radio-label">
+        {imageSrc ? (
+          <img src={imageSrc} alt={label} className="urm-radio-image" />
+        ) : (
+          <span>{__(label, "user-request-manager")}</span>
+        )}
+      </label>
+      {description && (
+        <span className="urm-input-description">
+          {__(description, "user-request-manager")}
+        </span>
+      )}
+    </div>
+  );
 }
 
 export default Radio;

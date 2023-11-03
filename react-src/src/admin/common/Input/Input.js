@@ -1,6 +1,6 @@
-import React from 'react';
-import { __ } from '@wordpress/i18n'; // Import for internationalization
-import './Input.css';
+import React from "react";
+import { __ } from "@wordpress/i18n"; // Import for internationalization
+import "./Input.css";
 
 /**
  * Input component.
@@ -14,18 +14,29 @@ import './Input.css';
  * @param {...Object} props - Any additional props to spread onto the input element.
  * @return {React.JSX.Element} Returns the input element wrapped in a div, optionally with a label and description.
  */
-function Input({ label, description, size = 'medium', prefix, suffix, ...props }) {
-	return (
-		<div className={`urm-input-group ${size}`}>
-			{label && <label>{__(label, 'wp-auctionify')}</label>}
-			<div className={`urm-input-wrapper ${prefix || suffix ? 'inline' : ''}`}>
-				{prefix && <span className="urm-input-prefix">{prefix}</span>}
-				<input className={`urm-input ${size}`} {...props} />
-				{suffix && <span className="urm-input-suffix">{suffix}</span>}
-			</div>
-			{description && <span className="urm-input-description">{__(description, 'wp-auctionify')}</span>}
-		</div>
-	);
+function Input({
+  label,
+  description,
+  size = "medium",
+  prefix,
+  suffix,
+  ...props
+}) {
+  return (
+    <div className={`urm-input-group ${size}`}>
+      {label && <label>{__(label, "user-request-manager")}</label>}
+      <div className={`urm-input-wrapper ${prefix || suffix ? "inline" : ""}`}>
+        {prefix && <span className="urm-input-prefix">{prefix}</span>}
+        <input className={`urm-input ${size}`} {...props} />
+        {suffix && <span className="urm-input-suffix">{suffix}</span>}
+      </div>
+      {description && (
+        <span className="urm-input-description">
+          {__(description, "user-request-manager")}
+        </span>
+      )}
+    </div>
+  );
 }
 
 export default Input;

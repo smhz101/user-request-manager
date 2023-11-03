@@ -1,6 +1,6 @@
-import React from 'react';
-import { __ } from '@wordpress/i18n';
-import './Checkbox.css';
+import React from "react";
+import { __ } from "@wordpress/i18n";
+import "./Checkbox.css";
 
 /**
  * Checkbox component.
@@ -14,17 +14,21 @@ import './Checkbox.css';
  * @return {React.JSX.Element} Returns the checkbox element with its label or image.
  */
 function Checkbox({ label, description, imageSrc, ...props }) {
-	return (
-		<div className={`urm-checkbox-group ${imageSrc ? 'image-checkbox' : ''}`}>
-			<input type="checkbox" className="hidden-checkbox" {...props} />
-			{imageSrc ? (
-				<img src={imageSrc} alt={label} className="checkbox-image" />
-			) : (
-				<label>{__(label, 'wp-auctionify')}</label>
-			)}
-			{description && <span className="urm-input-description">{__(description, 'wp-auctionify')}</span>}
-		</div>
-	);
+  return (
+    <div className={`urm-checkbox-group ${imageSrc ? "image-checkbox" : ""}`}>
+      <input type="checkbox" className="hidden-checkbox" {...props} />
+      {imageSrc ? (
+        <img src={imageSrc} alt={label} className="checkbox-image" />
+      ) : (
+        <label>{__(label, "user-request-manager")}</label>
+      )}
+      {description && (
+        <span className="urm-input-description">
+          {__(description, "user-request-manager")}
+        </span>
+      )}
+    </div>
+  );
 }
 
 export default Checkbox;

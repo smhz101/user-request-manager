@@ -1,6 +1,6 @@
-import React from 'react';
-import { __ } from '@wordpress/i18n';
-import './Textarea.css';
+import React from "react";
+import { __ } from "@wordpress/i18n";
+import "./Textarea.css";
 
 /**
  * Textarea component to render a custom textarea.
@@ -10,12 +10,12 @@ import './Textarea.css';
  * @returns {JSX.Element} Rendered Textarea component.
  */
 function Textarea({ label, ...props }) {
-	return (
-		<div className="urm-textarea-group">
-			{label && <label>{__(label, 'wp-auctionify')}</label>}
-			<textarea className="urm-textarea" {...props}></textarea>
-		</div>
-	);
+  return (
+    <div className="urm-textarea-group">
+      {label && <label>{__(label, "user-request-manager")}</label>}
+      <textarea className="urm-textarea" {...props}></textarea>
+    </div>
+  );
 }
 
 export default Textarea;

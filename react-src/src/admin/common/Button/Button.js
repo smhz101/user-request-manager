@@ -1,6 +1,6 @@
-import React from 'react';
-import { __ } from '@wordpress/i18n';
-import './Button.css';
+import React from "react";
+import { __ } from "@wordpress/i18n";
+import "./Button.css";
 
 /**
  * Button component.
@@ -13,21 +13,21 @@ import './Button.css';
  * @return {React.ReactNode} Returns the button or link element.
  */
 function Button({ children, link = false, ...props }) {
-	const className = link ? 'urm-link' : 'urm-button';
+  const className = link ? "urm-link" : "urm-button";
 
-	if (link) {
-		return (
-			<a className={className} {...props}>
-				{__(children, 'wp-auctionify')}
-			</a>
-		);
-	}
+  if (link) {
+    return (
+      <a className={className} {...props}>
+        {__(children, "user-request-manager")}
+      </a>
+    );
+  }
 
-	return (
-		<button className={className} {...props}>
-			{__(children, 'wp-auctionify')}
-		</button>
-	);
+  return (
+    <button className={className} {...props}>
+      {__(children, "user-request-manager")}
+    </button>
+  );
 }
 
 export default Button;
